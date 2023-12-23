@@ -3,19 +3,19 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
     @FindBy(xpath = "//input[@id='email']")
     private WebElement logInEmailField;
     @FindBy(xpath = "//input[@id='pass' and @name='login[password]']")
     private WebElement logInPasswordField;
-    @FindBy(xpath = "//button[@id='send2' and @class = 'action login primary']")
+    @FindBy(xpath = "//button[@id='send2' and @class='action login primary']")
     private WebElement signInButton;
 
-    public void enterTextToLoginField(String email) {
+    public void enterLogin(String email) {
         logInEmailField.sendKeys(email);
     }
 
-    public void enterTextToPasswordField(String loginPassword) {
+    public void enterPassword(String loginPassword) {
         logInPasswordField.sendKeys(loginPassword);
     }
 
@@ -25,8 +25,8 @@ public class LoginPage {
 
     public void login(String login, String password) {
         HomePage.clickSignInLink();
-        enterTextToLoginField(login);
-        enterTextToPasswordField(password);
+        enterLogin(login);
+        enterPassword(password);
         clickSignInButton();
     }
 }

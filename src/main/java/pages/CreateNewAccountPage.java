@@ -17,23 +17,23 @@ public class CreateNewAccountPage extends BasePage {
     @FindBy(xpath = "//button[@class='action submit primary']")
     private WebElement createAnAccountButton;
 
-    public void enterTextToFirstNameField(String firstname) {
+    public void enterFirstName(String firstname) {
         firstNameField.sendKeys(firstname);
     }
 
-    public void enterTextToLastNameField(String lastname) {
+    public void enterLastName(String lastname) {
         lastNameField.sendKeys(lastname);
     }
 
-    public void enterTextToEmailAddressField(String emailAddress) {
+    public void enterEmailAddress(String emailAddress) {
         emailAddressField.sendKeys(emailAddress);
     }
 
-    public void enterTextToPasswordField(String password) {
+    public void enterPassword(String password) {
         passwordField.sendKeys(password);
     }
 
-    public void enterTextToConfirmationPasswordField(String confirmationPassword) {
+    public void enterConfirmationPassword(String confirmationPassword) {
         confirmationPasswordField.sendKeys(confirmationPassword);
     }
 

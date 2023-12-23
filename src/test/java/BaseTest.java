@@ -15,6 +15,6 @@ public class BaseTest {
 
     @AfterEach
     void cleanup() {
-       DriverManager.quit();
+        DriverManager.quit();
     }
 }

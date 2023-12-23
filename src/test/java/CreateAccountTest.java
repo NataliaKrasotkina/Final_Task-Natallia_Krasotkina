@@ -38,11 +38,11 @@ public class CreateAccountTest extends BaseTest {
     }
 
     private void createAccount() {
-        createNewAccountPage.enterTextToFirstNameField(FIRST_NAME);
-        createNewAccountPage.enterTextToLastNameField(LAST_NAME);
-        createNewAccountPage.enterTextToEmailAddressField(EMAIL);
-        createNewAccountPage.enterTextToPasswordField(PASSWORD);
-        createNewAccountPage.enterTextToConfirmationPasswordField(PASSWORD);
+        createNewAccountPage.enterFirstName(FIRST_NAME);
+        createNewAccountPage.enterLastName(LAST_NAME);
+        createNewAccountPage.enterEmailAddress(EMAIL);
+        createNewAccountPage.enterPassword(PASSWORD);
+        createNewAccountPage.enterConfirmationPassword(PASSWORD);
         createNewAccountPage.clickCreateAnAccountButton();
         myAccountPage.waitForPageLoad();
     }
