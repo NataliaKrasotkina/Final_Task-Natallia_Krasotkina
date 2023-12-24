@@ -21,7 +21,7 @@ public class HomePage extends BasePage {
     }
 
     public void waitForPageLoad() {
-        waitForPageLoad(createAnAccountLink);
+        waitForElementVisible(createAnAccountLink);
     }
 
     public static void clickSignInLink() {

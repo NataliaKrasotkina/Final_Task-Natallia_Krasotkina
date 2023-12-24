@@ -20,7 +20,7 @@ public class BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    protected void waitForPageLoad(WebElement element) {
+    protected void waitForElementVisible(WebElement element) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getInstance(), Duration.ofSeconds(60));
         wait.pollingEvery(Duration.ofSeconds(2));
         wait.until(ExpectedConditions.visibilityOf(element));

@@ -15,7 +15,7 @@ public class MyAccountPage extends BasePage {
     }
 
     public void waitForPageLoad() {
-        waitForPageLoad(accountName);
+        waitForElementVisible(accountName);
     }
 
     public void clickAddressBookLink() {
