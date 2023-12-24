@@ -24,13 +24,17 @@ public class AddressBookPage extends BasePage {
     private WebElement zipPostalCodeField;
     @FindBy(xpath = "//button [@class='action save primary']")
     private WebElement saveAddressButton;
+    @FindBy(xpath = "//button [@class='action-primary action-accept']")
+    private WebElement deleteAddressConfirmButton;
+
 
     private String phoneNumberXpathPattern = "//tr/td[@class='col phone' and text()='%s']";
-
+    private String deleteAddressRecordXpathPattern = "//tr/td[@class='col phone' and text()='%s']/..//a[@class='action delete']";
 
     public void clickAddNewAddressButton() {
         addNewAddressButton.click();
     }
+
     public void enterPhoneNumber(String phoneNumber) {//TODO: rename enterPhoneNumber(String phoneNumber)
         phoneNumberField.sendKeys(phoneNumber);
     }
@@ -57,7 +61,13 @@ public class AddressBookPage extends BasePage {
         dropdown.selectByValue(countries.get(9).getAttribute("value"));
     }
 
-    public boolean isPhoneNumberDisplayed(String number) {
-        return isElementDisplayed(By.xpath(String.format(phoneNumberXpathPattern, number)));
+    public boolean isPhoneNumberDisplayed(String phoneNumber) {
+        return isElementDisplayed(By.xpath(String.format(phoneNumberXpathPattern, phoneNumber)));
+    }
+
+    public void deleteAddressRecord(String phoneNumber) {
+        WebElement deleteAddressRecordLink = driver.findElement(By.xpath(String.format(deleteAddressRecordXpathPattern, phoneNumber)));
+        deleteAddressRecordLink.click();
+        deleteAddressConfirmButton.click();
     }
 }

@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,6 +27,11 @@ public class AddAddressTest extends BaseTest {
         loginPage = new LoginPage();
         myAccountPage = new MyAccountPage();
         addressBookPage = new AddressBookPage();
+    }
+
+    @AfterEach
+    public void cleanUp(){
+        addressBookPage.deleteAddressRecord(PHONE_NUMBER);
     }
 
     @Test
