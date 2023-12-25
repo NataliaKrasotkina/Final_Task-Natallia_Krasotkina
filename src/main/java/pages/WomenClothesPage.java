@@ -5,13 +5,20 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class WomenPage extends BasePage {
+public class WomenClothesPage extends BasePage {
     @FindBy(css = ".product-item-photo")
     private List<WebElement> productsList;
+    @FindBy(xpath = "//ol//a[@href='https://magento.softwaretestingboard.com/women/tops-women.html']")
+    private WebElement womenTopsLink;
+
 
     public void clickProductByIndexIfExist(int number) {
         if (productsList.size() >= number) {
             productsList.get(number).click();
         }
+    }
+
+    public void clickWomenTopsLink() {
+        womenTopsLink.click();
     }
 }

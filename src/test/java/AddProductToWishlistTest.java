@@ -11,7 +11,7 @@ public class AddProductToWishlistTest extends BaseTest {
 
     private HomePage homePage;
     private LoginPage loginPage;
-    private WomenPage womenPage;
+    private WomenClothesPage womenPage;
     private ProductDetailsPage productDetailsPage;
     private MyWishListPage myWishListPage;
 
@@ -20,7 +20,7 @@ public class AddProductToWishlistTest extends BaseTest {
     public void setUp() {
         homePage = new HomePage();
         loginPage = new LoginPage();
-        womenPage = new WomenPage();
+        womenPage = new WomenClothesPage();
         productDetailsPage = new ProductDetailsPage();
         myWishListPage = new MyWishListPage();
     }
