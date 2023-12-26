@@ -14,6 +14,8 @@ public class HomePage extends BasePage {
     private WebElement myAccountLink;
     @FindBy(xpath = "//a//span[text()='Women']")
     private WebElement womenLink;
+    @FindBy(xpath = "//a[@class = 'action showcart']")
+    private WebElement cartIcon;
 
 
     public void clickCreateAnAccountLink() {
@@ -39,5 +41,4 @@ public class HomePage extends BasePage {
     public void clickWomanLink() {
         womenLink.click();
     }
-
 }

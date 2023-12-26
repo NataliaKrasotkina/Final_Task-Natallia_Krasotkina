@@ -24,8 +24,7 @@ public class AddressBookPage extends BasePage {
     private WebElement zipPostalCodeField;
     @FindBy(xpath = "//button [@class='action save primary']")
     private WebElement saveAddressButton;
-    @FindBy(xpath = "//button [@class='action-primary action-accept']")
-    private WebElement deleteAddressConfirmButton;
+
 
 
     private String phoneNumberXpathPattern = "//tr/td[@class='col phone' and text()='%s']";
@@ -68,6 +67,6 @@ public class AddressBookPage extends BasePage {
     public void deleteAddressRecord(String phoneNumber) {
         WebElement deleteAddressRecordLink = driver.findElement(By.xpath(String.format(deleteAddressRecordXpathPattern, phoneNumber)));
         deleteAddressRecordLink.click();
-        deleteAddressConfirmButton.click();
+        deleteConfirmButton.click();
     }
 }

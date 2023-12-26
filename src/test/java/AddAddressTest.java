@@ -30,7 +30,7 @@ public class AddAddressTest extends BaseTest {
     }
 
     @AfterEach
-    public void cleanUp(){
+    public void cleanUp() {
         addressBookPage.deleteAddressRecord(PHONE_NUMBER);
     }
 

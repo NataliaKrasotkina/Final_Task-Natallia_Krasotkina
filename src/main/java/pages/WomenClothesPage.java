@@ -8,7 +8,7 @@ import java.util.List;
 public class WomenClothesPage extends BasePage {
     @FindBy(css = ".product-item-photo")
     private List<WebElement> productsList;
-    @FindBy(xpath = "//ol//a[@href='https://magento.softwaretestingboard.com/women/tops-women.html']")
+    @FindBy(xpath = "//a[@href='https://magento.softwaretestingboard.com/women/tops-women.html' and text()='Tops']")
     private WebElement womenTopsLink;
 
 
