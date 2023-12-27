@@ -11,7 +11,7 @@ public class RunConfiguration {
         CHROME, FIREFOX;
     }
 
-    enum RunType{
+    enum RunType {
         LOCAL, SELENIUM_GRID, SAUCE_LABS;
     }
 }
