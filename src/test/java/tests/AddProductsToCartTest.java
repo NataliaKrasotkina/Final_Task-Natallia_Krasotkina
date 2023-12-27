@@ -1,12 +1,19 @@
+package tests;
+
+import cofiguration.MyTestWatcher;
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import pages.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@ExtendWith(MyTestWatcher.class)
 public class AddProductsToCartTest extends BaseTest {
     private List<String> productNames;
     private int subTotal;
@@ -40,6 +47,7 @@ public class AddProductsToCartTest extends BaseTest {
     }
 
     @Test
+    @Description("The test checks add products")
     public void addProductsToCartTest() {
         loginToApp();
         navigateToClothesPage();
@@ -49,12 +57,14 @@ public class AddProductsToCartTest extends BaseTest {
         validateProductCart();
     }
 
+    @Step("Validate Product Cart")
     private void validateProductCart() {
         womenTopsPage.clickShopCartIcon();
         Assertions.assertEquals(subTotal, shopCartPage.getProductsSubtotal(), "Subtotal is not correct");
         Assertions.assertTrue(shopCartPage.getProductNames().containsAll(productNames), "list of added products is not correct");
     }
 
+    @Step("Add Product To Cart")
     private void addProductToCart(int productIndex) {
         womenTopsPage.clickProductByIndex(productIndex);
         productNames.add(productDetailsPage.getProductTitle());
@@ -63,19 +73,16 @@ public class AddProductsToCartTest extends BaseTest {
         productDetailsPage.selectProductColourByIndex(0);
         productDetailsPage.clickAddToCartButton();
         productDetailsPage.waitForProductsNumberIcon();
-//        try {
-//            Thread.sleep(3000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
         womenPage.clickWomenTopsLink();
         productDetailsPage.waitForProductsNumberIcon();
     }
 
+    @Step("Login To App")
     public void loginToApp() {
         loginPage.login(LOGIN, PASSWORD);
     }
 
+    @Step("Navigate To Clothes Page")
     private void navigateToClothesPage() {
         homePage.clickWomanLink();
         womenPage.clickWomenTopsLink();

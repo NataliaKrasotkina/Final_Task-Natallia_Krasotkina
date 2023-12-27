@@ -11,6 +11,7 @@ public class MyAccountPage extends BasePage {
 
 
     public String getAccountName() {
+        waitForElementVisible(accountName);
         return accountName.getText();
     }
 
